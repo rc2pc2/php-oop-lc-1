@@ -3,13 +3,28 @@ include_once __DIR__ . '/Models/Product.php';
 include_once __DIR__ . '/Models/Category.php';
 include_once __DIR__ . '/Models/Computer.php';
 
+
 $vintageElectronicsCat = new Category('Vintage Electronics', 'Dispositivi elettronici vintage', 'https://cdnmetv.metv.com/XgGp6-1652303066-1697-lists-untitled_design_%283%29.jpg');
+
+function sum($num1, $num2){
+    if ( !is_int($num1) || !is_int($num2) ){
+        throw new Exception('Given arguments MUST be of type integer!');
+    } else {
+        return $num1 + $num2;
+    }
+}
+
+try {
+    echo sum(1, 'ciao');
+} catch (Exception $e){
+    echo '<br>Eccezione con messaggio: ' . $e->getMessage() .'<br><br>';
+}
 
 $wearables = new Category('Wearables', 'Dispositivi indossabili inutili', 'https://i0.wp.com/circuitcellar.com/wp-content/uploads/2022/12/385-Al-SF-Lead.jpg?fit=1258%2C921&ssl=1');
 
-$tvProduct = new Product('Vintage TV','Televisore a tubo catodico finissimo, appena 55cm', 33.99, $vintageElectronicsCat);
-$watchProduct = new Product('Inutilwatch', 'Il nuovo smartwatch che chiede tutto al proprietario', 77.33, $wearables);
-$maturPC = new Computer('Matur X17 AMT', 'Il nuovo Matur che ti fa sentire sempre giovane', 1999.99, new Category('IT', 'Information Technology products', 'https://media.designrush.com/articles/231707/conversions/information-technology-details.jpg'), '32GB', 'Stupid S8880K', 'nGeneroso 9900TI');
+$tvProduct = new Product('Vintage TV','Televisore a tubo catodico finissimo, appena 55cm', 33.99, $vintageElectronicsCat, 12, 'X' );
+$watchProduct = new Product('Inutilwatch', 'Il nuovo smartwatch che chiede tutto al proprietario', 77.33, $wearables, 33, 'F');
+$maturPC = new Computer('Matur X17 AMT', 'Il nuovo Matur che ti fa sentire sempre giovane', 1999.99, new Category('IT', 'Information Technology products', 'https://media.designrush.com/articles/231707/conversions/information-technology-details.jpg'), '32GB', 'Stupid S8880K', 'nGeneroso 9900TI' , 7, 'C');
 
 
 $products = [ $tvProduct, $watchProduct, $maturPC, $tvProduct, $watchProduct, $tvProduct, $watchProduct, $tvProduct, $watchProduct, $maturPC, ];

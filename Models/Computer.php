@@ -6,9 +6,9 @@ class Computer extends Product{
     public $cpu;
     public $gpu;
 
-    public function __construct(string $_name, string $_description, float $_price, Category $_category, $_ram, $_cpu, $_gpu)
+    public function __construct(string $_name, string $_description, float $_price, Category $_category, $_ram, $_cpu, $_gpu, $_hallway, $_shelf)
     {
-        parent::__construct($_name, $_description, $_price, $_category);
+        parent::__construct($_name, $_description, $_price, $_category, $_hallway, $_shelf);
         // ? che equivale a
         // $this->name = $_name;
         // $this->description = $_description;
